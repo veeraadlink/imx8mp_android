@@ -1,4 +1,4 @@
-# Android 14 for ADLINK LEC-iMX8MP
+# Android 15 for ADLINK LEC-iMX8MP
 
 ## Preparation
 
@@ -61,7 +61,7 @@ $ sudo git checkout 1634c6a556d1f2c24897bf74156c6449486e8941
 $ export PATH=/opt/prebuilt-android-clang-tools/linux-x86/bin:$PATH
 ```
 ## Download Android source from NXP and patches from Adlink GitHub
-Download "imx-android-14.0.0_2.2.0.tar.gz" from NXP site available [here](https://www.nxp.com/webapp/Download?colCode=14.0.0_2.2.0_ANDROID_SOURCE&appType=license) and copy into ${HOME} directory
+Download "imx-android-15.0.0_1.0.0.tar.gz" from NXP site available [here](https://www.nxp.com/webapp/Download?colCode=15.0.0_1.0.0_ANDROID_SOURCE&appType=license) and copy into ${HOME} directory
 ```
 $ mkdir ${HOME}/bin
 $ curl https://storage.googleapis.com/git-repo-downloads/repo > ${HOME}/bin/repo
@@ -69,8 +69,8 @@ $ chmod a+x ${HOME}/bin/repo
 $ export PATH=${PATH}:${HOME}/bin
 $ cd ${HOME}
 $ git clone https://github.com/ADLINK/imx8mp_android.git -b Android-14
-$ tar xzvf imx-android-14.0.0_2.2.0.tar.gz
-$ source ${HOME}/imx-android-14.0.0_2.2.0/imx_android_setup.sh
+$ tar xzvf imx-android-15.0.0_1.0.0.tar.gz
+$ source ${HOME}/imx-android-15.0.0_1.0.0/imx_android_setup.sh
 ```
 
 
@@ -78,44 +78,44 @@ $ source ${HOME}/imx-android-14.0.0_2.2.0/imx_android_setup.sh
 ### 1. Android Device
 ```
 $ cd ${HOME}/android_build/device/nxp
-$ git am ${HOME}/imx8mp_android/patches/imx-android-14.0.0_2.2.0/android_build/lec-imx8mp/device/nxp/0001-lec-imx8mp-Add-device-support.patch
+$ git am ${HOME}/imx8mp_android/patches/imx-android-15.0.0_1.0.0/android_build/lec-imx8mp/device/nxp/0001-lec-imx8mp-Add-device-support.patch
 ```
 
 ### 2. Kernel
 ```
 $ cd ${HOME}/android_build/vendor/nxp-opensource/kernel_imx
-$ git am ${HOME}/imx8mp_android/patches/imx-android-14.0.0_2.2.0/android_build/lec-imx8mp/vendor/nxp-opensource/kernel_imx/0001-lec-imx8mp-Add-initial-board-support.patch
+$ git am ${HOME}/imx8mp_android/patches/imx-android-15.0.0_1.0.0/android_build/lec-imx8mp/vendor/nxp-opensource/kernel_imx/0001-lec-imx8mp-Add-initial-board-support.patch
 ```
 
 ### 3. U-boot
 ```
 $ cd ${HOME}/android_build/vendor/nxp-opensource/uboot-imx
-$ git am ${HOME}/imx8mp_android/patches/imx-android-14.0.0_2.2.0/android_build/lec-imx8mp/vendor/nxp-opensource/uboot-imx/0001-lec-imx8mp-Add-initial-board-support.patch
+$ git am ${HOME}/imx8mp_android/patches/imx-android-15.0.0_1.0.0/android_build/lec-imx8mp/vendor/nxp-opensource/uboot-imx/0001-lec-imx8mp-Add-initial-board-support.patch
 ```
 
 ### 4. imx-mkimage
 ```
 $ cd ${HOME}/android_build/vendor/nxp-opensource/imx-mkimage
-$ git am ${HOME}/imx8mp_android/patches/imx-android-14.0.0_2.2.0/android_build/lec-imx8mp/vendor/nxp-opensource/imx-mkimage/0001-lec-imx8mp-add-support-to-compile-lec-dtb.patch
+$ git am ${HOME}/imx8mp_android/patches/imx-android-15.0.0_1.0.0/android_build/lec-imx8mp/vendor/nxp-opensource/imx-mkimage/0001-lec-imx8mp-add-support-to-compile-lec-dtb.patch
 ```
 
 ### 5. Libbt
 ```
 $ cd ${HOME}/android_build/hardware/nxp/libbt
-$ git am ${HOME}/imx8mp_android/patches/imx-android-14.0.0_2.2.0/android_build/lec-imx8mp/hardware/nxp/libbt/0001-lec-imx8mp-Add-bt-uart-support.patch
+$ git am ${HOME}/imx8mp_android/patches/imx-android-15.0.0_1.0.0/android_build/lec-imx8mp/hardware/nxp/libbt/0001-lec-imx8mp-Add-bt-uart-support.patch
 ```
 
 ### 6. External Libraries
 ```
 $ cd ${HOME}/android_build/external
-$ git apply ${HOME}/imx8mp_android/patches/imx-android-14.0.0_2.2.0/android_build/lec-imx8mp/external/0001-can-spi-pwm-utils.patch
+$ git apply ${HOME}/imx8mp_android/patches/imx-android-15.0.0_1.0.0/android_build/lec-imx8mp/external/0001-can-spi-pwm-utils.patch
 ```
 
-Compile Android 14 BSP
+Compile Android 15 BSP
 ------------------------------
 ```
 $ cd ${HOME}/android_build
 $ source build/envsetup.sh
-$ lunch lec_imx8mp-trunk_staging-userdebug
+$ lunch lec_imx8mp-nxp_stable-userdebug
 $ ./imx-make.sh -j4 2>&1 | tee build-log.txt
 ```
