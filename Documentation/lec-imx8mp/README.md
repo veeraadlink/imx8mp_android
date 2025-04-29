@@ -1,4 +1,4 @@
-# Android 14 for ADLINK LEC-iMX8MP
+# Android 15 for ADLINK LEC-iMX8MP
 
 ## Contents
 ```
@@ -41,9 +41,9 @@
 | **Module** | **LEC-iMX8MP** |
 
 ## 2 Software Details
-|   Android   |   Ver  14   |
+|   Android   |   Ver  15   |
 |:-----------:|:-----------:|
-| **Kernel**  | **6.6.36** |
+| **Kernel**  | **6.6.56** |
 | **U-Boot**  | **2024.04** |
 | **Host OS** | **Ubuntu 22.04.4** |
 
@@ -51,11 +51,11 @@
 ## 3 Package structure
 
  ```
-  |---adlink-lec-imx8mp-android-upsidedowncake_V2_R1_241118
+  |---adlink-lec-imx8mp-android-VannilaIceCream_V2_R1_250502
      |--- android images
      |--- README.md
  ```
-- Download Android release (adlink-lec-imx8mp-android-upsidedowncake_V2_R1_241118.zip) and extract it.
+- Download Android release (adlink-lec-imx8mp-android-vannilaicecream_V2_R1_250205.zip) and extract it.
 
 
 
